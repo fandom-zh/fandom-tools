@@ -1,14 +1,24 @@
+#作者：Adaihappyjan
+#版本号：0.3
+#更新内容：无（等待后续0.8版本更新）
+#创建时间：2023年2月
+#最后修改时间：2023年2月
+#说明：Fanhistopy是一个用于获取Fandom（wiki）页面修订历史的工具。
+#是否为公共版：是
+#Github地址：https://github.com/adaihappyjan/Fandom_Tool
+
+#导入库
 import requests
-import json
+import json#目前不需要
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog#目前不需要
 from tkinter import ttk
 import threading
 
-stop_flag = False
-continue_flag = False
+stop_flag = False#停止标志
+continue_flag = False#继续标志
 
-def allrv(wikiname, lang, start=1):
+def allrv(wikiname, lang, start=1):#获取所有修订历史
     global stop_flag, continue_flag
     prefix = 'https://'
     midfix = '.fandom.com/'
@@ -21,14 +31,14 @@ def allrv(wikiname, lang, start=1):
     data = response.json()
     total = data['query']['statistics']['edits']
     output_file = f"{lang}.{wikiname}-{start}-{total}.txt"
-    with open(output_file, 'w', encoding='utf-8') as file:
+    with open(output_file, 'w', encoding='utf-8') as file:#写入文件
         for idx in range(start, total + 1):
-            if stop_flag:
+            if stop_flag:#停止
                 break
-            if continue_flag:
+            if continue_flag:#继续
                 continue_flag = False
                 continue
-            url = f"{prefix}{site}{midfix}{lang}{suffix}{idx}{suffix2}"
+            url = f"{prefix}{site}{midfix}{lang}{suffix}{idx}{suffix2}"#获取修订历史
             response = requests.get(url)
             data = response.json()
             rvstrm = [str(idx)]
@@ -47,7 +57,7 @@ def allrv(wikiname, lang, start=1):
             root.update_idletasks()
     return f"{lang}.{wikiname}已完成"
 
-def run_program():
+def run_program():#运行程序
     global stop_flag, continue_flag
     stop_flag = False
     continue_flag = False
@@ -57,15 +67,15 @@ def run_program():
     thread = threading.Thread(target=allrv, args=(wikiname, lang, start))
     thread.start()
 
-def stop_program():
+def stop_program():#停止程序
     global stop_flag
     stop_flag = True
 
-def continue_program():
+def continue_program():#继续程序
     global continue_flag
     continue_flag = True
 
-root = tk.Tk()
+root = tk.Tk()#GUI
 root.title("Fanhistopy 0.3V")
 
 wikiname_label = tk.Label(root, text="输入wiki名称:")
