@@ -3,8 +3,8 @@ Fandom_Tool 是一个为了更好的管理 Fandom wiki 的程序集合，由 Ada
 
 目前包含两个主要工具：
 
-· Fandom 社区管理工具 - SOAP Tool
-· Fandom 社区页面修订历史获取工具 - Fanhistopy
+- Fandom 社区管理工具 - SOAP Tool
+- Fandom 社区页面修订历史获取工具 - Fanhistopy
 ## Fanhistopy
 Fanhistopy 是一个用于获取 Fandom（wiki）页面修订历史的 Python 工具。
 
@@ -25,10 +25,10 @@ Fanhistopy 是一个用于获取 Fandom（wiki）页面修订历史的 Python �
 ## 代码依赖
 此代码依赖以下 Python 库：
 
-· requests
-· json
-· tkinter
-· threading
+- requests
+- json
+- tkinter
+- threading
 # Fandom社区管理工具（SOAP Tool）
 ## 下一步更新计划
 0.3.00版本将有以下更新：
