@@ -55,3 +55,9 @@ SOAP Tool 是一个 Fandom 社区管理工具，用于检查 Fandom 社区（wik
 该版本为公共测试版，可能存在一些问题和不完善的功能。
 如果您对该工具有任何问题或建议，请联系作者 Adaihappyjan。
 如果需要对不同部分进行修改，请自行打开源代码解决，注释很全。
+### 代码依赖
+此代码依赖以下 Python 库：
+
+- requests
+- beautifulsoup4
+- lxml
