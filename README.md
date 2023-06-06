@@ -4,7 +4,7 @@ Fandom_Tool是Adaihappyjan开发和维护的一套用于优化Fandom wiki管理�
 目前包含两个主要工具：
 
 - Fandom 新社区页面检查工具 - SOAP Tool
--- 用于移动端的 SOAP Tool - SOAP Tool Mobile
+* 用于移动端的 SOAP Tool - SOAP Tool Mobile
 - Fandom 社区页面修订历史获取工具 - Fanhistopy
 ## Fanhistopy
 Fanhistopy 是一个用于获取 Fandom（wiki）页面修订历史的 Python 工具。
