@@ -1,9 +1,10 @@
 # Fandom_Tool
-Fandom_Tool 是一个为了更好的管理 Fandom wiki 的程序集合，由 Adaihappyjan 开发和维护。
+Fandom_Tool是Adaihappyjan开发和维护的一套用于优化Fandom wiki管理的程序集合。
 
 目前包含两个主要工具：
 
-- Fandom 社区管理工具 - SOAP Tool
+- Fandom 新社区页面检查工具 - SOAP Tool
+-- 用于移动端的 SOAP Tool - SOAP Tool Mobile
 - Fandom 社区页面修订历史获取工具 - Fanhistopy
 ## Fanhistopy
 Fanhistopy 是一个用于获取 Fandom（wiki）页面修订历史的 Python 工具。
@@ -28,16 +29,16 @@ Fanhistopy 是一个用于获取 Fandom（wiki）页面修订历史的 Python �
 - json
 - tkinter
 - threading
-## Fandom社区管理工具（SOAP Tool）
+## Fandom 新社区页面检查工具（System of Advanced Page monitoring Tool, SOAP Tool）
 ### 下一步更新计划
 0.3.00版本将有以下更新：
 
 - 增加查询非中文区（Fandom支持的语言选项）的功能
 - 优化代码结构
-- 增加可使用 ChatGPT 总结并判断 wiki 内容的功能
-- 增加可使用 Fandom Zendesk 自动发送举报邮件的功能（需要用户提供 Zendesk 账号和密码）
+- 增加可使用ChatGPT总结并判断wiki内容的功能
+- 增加可使用FandomZendesk自动发送举报邮件的功能（需要用户提供Zendesk账号和密码）
 ### 功能说明
-SOAP Tool 是一个 Fandom 社区管理工具，用于检查 Fandom 社区（wiki）页面中的恶意内容。主要功能包括从指定数量的新 wiki 中查找包含指定关键词的页面，并将结果保存到文件中。用户可以选择关键词选项和要检查的 wiki 数量，并可以实时查看处理进度和运行速率。
+SOAP Tool是一个Wiki页面监视系统，为Fandom社区设计，用于检查新的wiki页面中的内容。主要功能包括从指定数量的新wiki中查找含有指定关键词的页面，并将结果保存到文件中。用户可以选择关键词选项和要检查的wiki数量，并可以实时查看处理进度和运行速率。
 
 ### 使用方法
 - 运行程序后，点击 "开始检查wiki" 按钮。
