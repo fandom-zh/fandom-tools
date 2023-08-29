@@ -11,7 +11,7 @@ Fandom_Tool 是由 Adaihappyjan 开发和维护的一套用于优化 Fandom wiki
 
 ## EasyPost
 
-EasyPost 是一个用于轻松发布Fandom中文公告的只能简繁替换器。
+EasyPost 是一个用于轻松发布Fandom中文公告的智能简繁替换器。
 
 ### 版本号
 0.1
