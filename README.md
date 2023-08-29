@@ -5,6 +5,37 @@ Fandom_Tool 是由 Adaihappyjan 开发和维护的一套用于优化 Fandom wiki
 1. Fandom 新社区页面检查工具 - SOAP Tool
 2. 用于移动端的 SOAP Tool - SOAP Tool Mobile
 3. Fandom 社区页面修订历史获取工具 - Fanhistopy
+4. ZHCCC限定，用于发布公告而使用的智能简繁替换器 - EasyPost
+
+---
+
+## EasyPost
+
+EasyPost 是一个用于轻松发布Fandom中文公告的只能简繁替换器。
+
+### 版本号
+0.1
+
+### 更新
+目前的版本号为 0.1
+
+### 特性
+- 支持润色功能，可以直接将英文公告使用ChatGPT API进行初步翻译和润色（虽然还是要进行手动校对）。
+- 支持Fandom中文简繁对照表。
+- 支持导入页面ID并自动生成链接。
+- 将结果复制粘贴即可发送至Discord。
+
+### 使用方法
+运行此 Python 脚本，然后在 GUI 中输入想要转换的公告原文（英文中文即可），可选择润色，然后点击转换，并将生成的文本复制粘贴入Discord。
+
+### 代码依赖
+此代码依赖以下 Python 库：
+- openai
+- tkinter
+- datetime
+- zhconv
+- re
+- random
 
 ---
 
