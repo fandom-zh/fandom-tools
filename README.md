@@ -1,6 +1,6 @@
 # Fandom_Tool
 
-Fandom_Tool 是由 Adaihappyjan 开发和维护的一套用于优化 Fandom wiki 管理的程序集合。目前包含两个主要工具：
+Fandom_Tool 是由 Adaihappyjan 开发和维护的一套用于优化 Fandom wiki 管理的程序集合。目前包含三个主要工具：
 
 1. Fandom 新社区页面检查工具 - SOAP Tool
 2. 用于移动端的 SOAP Tool - SOAP Tool Mobile
