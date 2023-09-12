@@ -1,6 +1,7 @@
 import re # 以后改用正则表达式匹配
 import requests
 from bs4 import BeautifulSoup
+from urllib.parse import urlencode
 from urllib3.util import parse_url
 
 headers = {
@@ -13,7 +14,7 @@ class FandomWiki:
         self.url = url
         self.keywords_hit = 0
         self.bureaucrats: list[str] = []
-        self.revtime = None
+        self.oldest_rev = None
     
     @property
     def api(self) -> str:
@@ -63,17 +64,35 @@ def process_wikis(limit: int, keywords: list[str]):
         if wiki.keywords_hit == 0: continue
 
         try:
-            response = requests.get(wiki.api, {
+            query = {
                 "format": "json",
                 "formatversion": 2,
                 "action": "query",
                 "list": "allusers",
                 "augroup": "bureaucrat"
-            }, headers=headers)
+            }
+            response = requests.get(wiki.api, query, headers=headers)
             wiki.bureaucrats = [obj["name"] for obj in response.json()["query"]["allusers"]]
-        except requests.exceptions.RequestException:
-            print("行政员列表获取失败！")
-            continue
+        except:
+            del query["format"]
+            print(f"行政员列表获取失败！请手动检查：{wiki.api}?{urlencode(query)}")
+
+        try:
+            query = {
+                "format": "json",
+                "formatversion": 2,
+                "action": "query",
+                "list": "allrevisions",
+                "arvprop": "timestamp",
+                "arvlimit": 1,
+                "arvdir": "newer"
+            }
+            response = requests.get(wiki.api, query, headers=headers)
+            wiki.oldest_rev: str = response.json()["query"]["allrevisions"][0]["revisions"][0]["timestamp"]
+            wiki.oldest_rev = wiki.oldest_rev.replace("T", " ").removesuffix("Z")
+        except:
+            del query["format"]
+            print(f"获取现存最旧修订时间失败！请手动检查：{wiki.api}?{urlencode(query)}")
 
         sus_wikis.append(wiki)
 
@@ -83,6 +102,8 @@ def process_wikis(limit: int, keywords: list[str]):
     for wiki in sus_wikis:
         print(f"\033[91mwiki名：{wiki.name} ({wiki.url})")
         print(f"匹配的关键词数：{wiki.keywords_hit}个")
+        if wiki.oldest_rev:
+            print(f"现存最旧修订时间：{wiki.oldest_rev}")
         if wiki.bureaucrats:
             print("行政员：")
             for bureaucrat in wiki.bureaucrats:
