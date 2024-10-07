@@ -221,7 +221,7 @@ translation_dict = {
 reverse_translation_dict = {v: k for k, v in translation_dict.items()}
 
 # 初始化OpenAI API
-openai.api_key = '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'
+openai.api_key = '自己的apikey'
 
 # 定义润色提示
 prompts_simplified = [
